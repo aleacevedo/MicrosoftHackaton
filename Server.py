@@ -24,8 +24,8 @@ def checkTables():
         time = time.split('-')
         for i in range (1,10):
             if(Tabless[i].checkDateAvaiable(date,time)):
-                return True
-    return False
+                return str("True")
+    return str("False")
 
 @app.route('/reserveTable', methods=['POST', 'GET'])
 def reserveTable():
@@ -35,9 +35,9 @@ def reserveTable():
         for i in range (1,10):
             if(Tabless[i].checkDateAvaiable(date,time)):
                 Tabless[i].reserveTable(date,time)
-                return True
+                return str("True")
     return False
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)
